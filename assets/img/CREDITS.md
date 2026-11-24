@@ -16,3 +16,6 @@ All photos are from Unsplash and are used under the Unsplash License (free for c
 | final-warehouse.webp | Closing call-to-action | Lance Chang | https://unsplash.com/photos/a-large-warehouse-filled-with-lots-of-shelves-h3pVxOIpnzk |
 
 These are stock photos. For trust, swap them for photos of your own team, clients and facilities when you have them: keep the same file names and sizes and the page picks them up.
+
+> **Note:** these photos were renamed when moved to `photos/`: hero-factory -> home-hero, team-meeting -> meet-team (also used as about-hero),
+> form-owner -> contact-owner. The others keep their names. All are `.webp` files in this folder's `photos/` subfolder.

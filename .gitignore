@@ -1,0 +1,11 @@
+# Old site clone (its own git repo) and local backups
+/maalbecho/
+/backup/clone-v1/
+
+# Unused images from the earlier Lovable clone (real photos live in assets/img/photos/)
+/assets/img/*.jpg
+
+# Editor / tool folders
+.claude/
+.vscode/
+*.log
