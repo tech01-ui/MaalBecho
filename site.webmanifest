@@ -1,0 +1,29 @@
+{
+  "name": "Maalbecho",
+  "short_name": "Maalbecho",
+  "description": "Sales growth partner for manufacturers, distributors and wholesalers in India.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "en-IN",
+  "background_color": "#faf6ec",
+  "theme_color": "#c9f53a",
+  "icons": [
+    {
+      "src": "/assets/brand/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/brand/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -3,11 +3,12 @@
   'use strict';
 
   /* ---------------- Settings (edit before launch) ---------------- */
-  // URL that accepts the enquiry as JSON (POST) and replies { "success": true }.
-  // Leave empty while the site is in preview: the form then shows a notice and a WhatsApp fallback.
+  // Paste your Google Apps Script web-app URL here (ends with /exec).
+  // See google-apps-script/SETUP.md. Each submitted enquiry becomes a new row in your Google Sheet.
+  // Leave empty while previewing: the form then shows a notice and a WhatsApp fallback instead.
   var CONFIG = {
     submissionEndpoint: '',
-    whatsappNumber: '1234567890' // placeholder – replace with the real number
+    whatsappNumber: '918796561256' // country code + number, no "+" or spaces
   };
 
   var $ = function (id) { return document.getElementById(id); };
@@ -106,6 +107,10 @@
     data.contactConsent = $('consent').checked;
     data.whatsappConsent = form.elements.whatsappConsent.checked;
     data.source = 'maalbecho-website';
+    data.pageUrl = window.location.href;
+
+    // Spam trap: real visitors never see or fill the hidden field. Pretend success, send nothing.
+    if (data.hp_website) { showThanks(); return; }
 
     // Preview mode: nothing is sent anywhere.
     if (!CONFIG.submissionEndpoint) {
@@ -122,25 +127,37 @@
     var button = $('submitBtn');
     button.disabled = true;
     button.textContent = 'Sending…';
+    // Google Apps Script web apps do not answer CORS preflights, so the body is sent as
+    // text/plain (a "simple" request). The script parses it as JSON on its side.
     fetch(CONFIG.submissionEndpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(data)
     })
       .then(function (r) { if (!r.ok) throw new Error('Submission failed'); return r.json(); })
       .then(function (res) {
-        if (res.success !== true) throw new Error('Submission unconfirmed');
-        form.replaceChildren();
-        var h = document.createElement('h3');
-        h.textContent = 'Thank you. Your enquiry has been received.';
-        var p = document.createElement('p');
-        p.textContent = 'Our team will review your business details and get back to you.';
-        form.append(h, p);
+        if (res.success !== true) throw new Error(res.error || 'Submission unconfirmed');
+        showThanks();
       })
       .catch(function () {
         button.disabled = false;
         button.textContent = 'Request my growth discussion';
-        statusBox.textContent = 'Sorry, something went wrong. Please try again or chat with us on WhatsApp.';
+        statusBox.textContent = 'Sorry, something went wrong. Please try again or ';
+        var a = document.createElement('a');
+        a.href = waSummary(data);
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = 'send these details on WhatsApp →';
+        statusBox.appendChild(a);
       });
   });
+
+  function showThanks() {
+    form.replaceChildren();
+    var h = document.createElement('h3');
+    h.textContent = 'Thank you. Your enquiry has been received.';
+    var p = document.createElement('p');
+    p.textContent = 'Our team will review your business details and get back to you.';
+    form.append(h, p);
+  }
 })();

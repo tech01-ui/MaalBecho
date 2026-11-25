@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /backup/
+Disallow: /google-apps-script/
+Disallow: /docs/
+
+Sitemap: https://www.maalbecho.com/sitemap.xml
