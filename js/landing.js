@@ -61,3 +61,20 @@
       });
   });
 })();
+
+// Hero heading: rotate "Manufacturers" / "Importers"
+(function () {
+  var box = document.getElementById('rot');
+  if (!box || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var words = [].slice.call(box.children), i = 0;
+  setInterval(function () {
+    var cur = words[i];
+    i = (i + 1) % words.length;
+    var next = words[i];
+    cur.classList.remove('on'); cur.classList.add('out'); cur.setAttribute('aria-hidden', 'true');
+    next.classList.remove('out'); next.style.transition = 'none'; next.style.transform = 'translateY(60%)';
+    void next.offsetWidth;
+    next.style.transition = ''; next.style.transform = '';
+    next.classList.add('on'); next.removeAttribute('aria-hidden');
+  }, 2200);
+})();
