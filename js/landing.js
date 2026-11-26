@@ -1,7 +1,7 @@
 // Maalbecho landing: lead form. Same settings as js/main.js (edit before launch).
 (function () {
   'use strict';
-  var CONFIG = { submissionEndpoint: 'https://script.google.com/macros/s/AKfycby0zCvwLrOIrfZFXBqEAA3aI68t4S6CMzEkhTKKBRzBnpFyE9Zhbukj9zABw4B84n6Y/exec', whatsappNumber: '1234567890' }; // placeholders
+  var CONFIG = { submissionEndpoint: 'https://script.google.com/macros/s/AKfycby0zCvwLrOIrfZFXBqEAA3aI68t4S6CMzEkhTKKBRzBnpFyE9Zhbukj9zABw4B84n6Y/exec', whatsappNumber: '919968669944' }; // placeholders
   // Custom dropdown
   var dd = document.getElementById('turnoverDD');
   if (dd) {
