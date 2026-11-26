@@ -25,6 +25,7 @@ input,select,button{font:inherit}
 .tag i{width:7px;height:7px;border-radius:50%;background:var(--or);flex:none}
 h1{font-family:var(--d);font-weight:900;font-stretch:105%;font-size:clamp(38px,5.6vw,72px);line-height:1;letter-spacing:-.03em;margin:0;text-wrap:balance}
 h1 span{color:var(--or)}
+.sub{font-size:clamp(17px,4.5vw,20px);line-height:1.5;margin:0;max-width:560px;text-wrap:pretty}
 .btns{display:flex;flex-wrap:wrap;gap:12px;width:100%;max-width:480px;margin-top:8px}
 .btns .btn{padding:16px 26px;font-size:16px;text-align:center}
 .btns .btn.or{flex:1 1 220px}.btns .btn.line{flex:0 1 auto}
