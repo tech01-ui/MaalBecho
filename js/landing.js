@@ -1,7 +1,7 @@
 // Maalbecho landing: lead form. Same settings as js/main.js (edit before launch).
 (function () {
   'use strict';
-  var CONFIG = { submissionEndpoint: '', whatsappNumber: '1234567890' }; // placeholders
+  var CONFIG = { submissionEndpoint: 'https://script.google.com/macros/s/AKfycby0zCvwLrOIrfZFXBqEAA3aI68t4S6CMzEkhTKKBRzBnpFyE9Zhbukj9zABw4B84n6Y/exec', whatsappNumber: '1234567890' }; // placeholders
   // Custom dropdown
   var dd = document.getElementById('turnoverDD');
   if (dd) {
@@ -34,6 +34,7 @@
     var d = {};
     new FormData(form).forEach(function (v, k) { d[k] = v; });
     d.source = 'maalbecho-landing';
+    d.page = location.href;
 
     if (!CONFIG.submissionEndpoint) {
       var msg = 'Hi Maalbecho! I\'d like a growth call.\nName: ' + d.name + '\nCompany: ' + d.company +
@@ -47,7 +48,7 @@
       return;
     }
     btn.disabled = true; btn.textContent = 'Sending…';
-    fetch(CONFIG.submissionEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
+    fetch(CONFIG.submissionEndpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(d) })
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (r) {
         if (r.success !== true) throw 0;
