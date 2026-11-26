@@ -7,7 +7,8 @@
 <meta name="description" content="Scale your distribution network, enter untapped markets and grow across India with Maal Becho, your dedicated growth partner.">
 <meta property="og:title" content="Maalbecho — More Distributors. More Markets. More Business.">
 <meta property="og:type" content="website">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
@@ -51,16 +52,16 @@
   <p class="lead">See how we’ve helped businesses unlock their next phase of growth.</p>
   <div class="cards">
       <article class="card">
-        <img src="assets/img/photos/network-1.jpg" alt="" loading="lazy">
-        <div><small>CASE STUDY 01</small><h3>[Brand Name]</h3><p>Short summary of the challenge, what we did and the growth achieved.</p><a href="#apply">Read case study →</a></div>
+        <img src="assets/case-studies/xyz-digital.jpg" alt="XYZ Digital case study" width="1600" height="1000">
+        <div><small>CASE STUDY 01</small><h3>XYZ Digital</h3><p>Short summary of the challenge, what we did and the growth achieved.</p><a href="assets/case-studies/xyz-digital-case-study.pdf" target="_blank" rel="noopener">Read case study →</a></div>
       </article>
       <article class="card">
-        <img src="assets/img/photos/network-2.jpg" alt="" loading="lazy">
-        <div><small>CASE STUDY 02</small><h3>[Brand Name]</h3><p>Short summary of the challenge, what we did and the growth achieved.</p><a href="#apply">Read case study →</a></div>
+        <img src="assets/case-studies/tom-miller.jpg" alt="Tom Miller case study" width="1600" height="1000">
+        <div><small>CASE STUDY 02</small><h3>Tom Miller</h3><p>Short summary of the challenge, what we did and the growth achieved.</p><a href="assets/case-studies/tom-miller-case-study.pdf" target="_blank" rel="noopener">Read case study →</a></div>
       </article>
       <article class="card">
-        <img src="assets/img/photos/network-3.jpg" alt="" loading="lazy">
-        <div><small>CASE STUDY 03</small><h3>[Brand Name]</h3><p>Short summary of the challenge, what we did and the growth achieved.</p><a href="#apply">Read case study →</a></div>
+        <img src="assets/case-studies/multybyte.jpg" alt="Multybyte case study" width="1600" height="1000">
+        <div><small>CASE STUDY 03</small><h3>Multybyte</h3><p>Short summary of the challenge, what we did and the growth achieved.</p><a href="assets/case-studies/multybyte-case-study.pdf" target="_blank" rel="noopener">Read case study →</a></div>
       </article>
   </div>
 </section>
@@ -79,7 +80,13 @@
       <label>Company Name<input required name="company" type="text" placeholder="Kumar Industries"></label>
       <label>Phone Number<input required name="phone" type="tel" placeholder="+91 98XXX XXXXX"></label>
       <label>Industry / Product Category<input required name="category" type="text" placeholder="e.g. Kitchenware, Auto parts"></label>
-      <label>Annual Turnover<select name="turnover"><option>₹1–5 Cr</option><option>₹5–25 Cr</option><option>₹25–100 Cr</option><option>₹100 Cr+</option><option>Below ₹1 Cr</option></select></label>
+      <div class="field">Annual Turnover
+        <div class="dd" id="turnoverDD">
+          <input type="hidden" name="turnover" value="₹1–5 Cr">
+          <button type="button" class="dd-btn" id="turnoverBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Annual Turnover"><span>₹1–5 Cr</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <ul class="dd-list" role="listbox" hidden><li role="option" tabindex="-1" data-v="₹1–5 Cr" aria-selected="true">₹1–5 Cr</li><li role="option" tabindex="-1" data-v="₹5–25 Cr">₹5–25 Cr</li><li role="option" tabindex="-1" data-v="₹25–100 Cr">₹25–100 Cr</li><li role="option" tabindex="-1" data-v="₹100 Cr+">₹100 Cr+</li><li role="option" tabindex="-1" data-v="Below ₹1 Cr">Below ₹1 Cr</li></ul>
+        </div>
+      </div>
       <button type="submit" id="submitBtn">Book My Growth Call →</button>
       <p class="status" id="formStatus" role="status"></p>
     </form>
@@ -94,7 +101,6 @@
 
 <footer class="ftr"><div class="wrap">
   <a class="logo" href="index.html">maalbecho<span>.</span></a>
-  <nav aria-label="Footer"><a href="manufacturers.html">Manufacturers</a><a href="distributors.html">Distributors</a><a href="wholesalers.html">Wholesalers</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
   <div>Your dedicated growth partner · Pan-India</div>
 </div></footer>
 <script src="js/landing.js"></script>

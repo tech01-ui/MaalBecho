@@ -2,6 +2,28 @@
 (function () {
   'use strict';
   var CONFIG = { submissionEndpoint: '', whatsappNumber: '1234567890' }; // placeholders
+  // Custom dropdown
+  var dd = document.getElementById('turnoverDD');
+  if (dd) {
+    var btn0 = dd.querySelector('.dd-btn'), list = dd.querySelector('.dd-list'), hid = dd.querySelector('input'), items = [].slice.call(list.children);
+    var setOpen = function (o) { list.hidden = !o; dd.classList.toggle('open', o); btn0.setAttribute('aria-expanded', o ? 'true' : 'false'); };
+    var pick = function (li) {
+      items.forEach(function (x) { x.removeAttribute('aria-selected'); });
+      li.setAttribute('aria-selected', 'true'); hid.value = li.dataset.v; btn0.firstChild.textContent = li.dataset.v; setOpen(false); btn0.focus();
+    };
+    btn0.addEventListener('click', function () { setOpen(list.hidden); if (!list.hidden) (list.querySelector('[aria-selected]') || items[0]).focus(); });
+    items.forEach(function (li, i) {
+      li.addEventListener('click', function () { pick(li); });
+      li.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(li); }
+        else if (e.key === 'ArrowDown') { e.preventDefault(); (items[i + 1] || li).focus(); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); (items[i - 1] || li).focus(); }
+      });
+    });
+    document.addEventListener('click', function (e) { if (!dd.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !list.hidden) { setOpen(false); btn0.focus(); } });
+  }
+
   var form = document.getElementById('leadForm');
   if (!form) return;
   var status = document.getElementById('formStatus');
