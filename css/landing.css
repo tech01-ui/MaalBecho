@@ -1,0 +1,76 @@
+/* Maalbecho landing (v2 design): cream / ink / orange editorial look */
+*{box-sizing:border-box}
+:root{--bg:#F3EFE6;--ink:#16140F;--or:#D9480F;--or-l:#FF8A4C;--mut:#4A463D;--card:#FBF9F4;--d:Archivo,system-ui,sans-serif;--m:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Instrument Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+a:hover{color:var(--or)}
+input,select,button{font:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.hdr{position:sticky;top:0;z-index:10;background:rgba(243,239,230,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ink)}
+.hdr .wrap{padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:var(--d);font-weight:900;font-stretch:115%;font-size:22px;letter-spacing:-.02em;text-decoration:none}
+.logo span{color:var(--or)}
+.hdr nav{display:flex;align-items:center;gap:12px;font-size:15px}
+.hdr nav a{text-decoration:none;font-weight:600;padding:10px 4px}
+.hdr nav a.pill{background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px}
+.hdr nav a.pill:hover{background:var(--or);color:#fff}
+.btn{display:inline-block;text-decoration:none;padding:18px 28px;border-radius:999px;font-weight:600;font-size:17px}
+.btn.or{background:var(--or);color:#fff}.btn.or:hover{background:#B83A08;color:#fff}
+.btn.line{border:1px solid var(--ink)}.btn.line:hover{background:var(--ink);color:var(--bg)}
+.hero{padding:72px 24px 88px}
+.tag{display:inline-flex;font-family:var(--m);font-size:12px;text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--ink);padding:7px 12px;border-radius:999px;margin-bottom:28px}
+h1{font-family:var(--d);font-weight:900;font-stretch:112%;font-size:clamp(44px,8vw,104px);line-height:.92;letter-spacing:-.035em;margin:0;max-width:1100px;text-wrap:balance}
+h1 span{color:var(--or)}
+.hero-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:36px;align-items:end}
+.hero-row p{font-size:20px;line-height:1.5;margin:0;max-width:560px;text-wrap:pretty}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.eyebrow{font-family:var(--m);font-size:13px;letter-spacing:.08em;color:var(--or);margin-bottom:16px}
+h2{font-family:var(--d);font-weight:800;font-stretch:108%;font-size:clamp(34px,5vw,60px);line-height:1;letter-spacing:-.03em;margin:0;text-wrap:balance}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;padding:96px 24px}
+.dark{background:var(--ink);color:var(--bg)}
+.dark .col{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.dark .eyebrow{color:var(--or-l);margin:0}
+.dark p{font-size:19px;line-height:1.55;margin:0;color:#BDB7A8;max-width:440px}
+.dark .btn{margin-top:12px;background:var(--bg);color:var(--ink);padding:16px 26px}
+.dark .btn:hover{background:var(--or-l);color:var(--ink)}
+.outs{border-top:1px solid #3A372F;margin:0;padding:0;list-style:none}
+.outs li{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid #3A372F}
+.outs b{font-family:var(--m);font-weight:500;font-size:13px;color:var(--or-l)}
+.outs span{font-family:var(--d);font-weight:700;font-size:clamp(20px,2.2vw,26px);line-height:1.25;letter-spacing:-.01em}
+.cases{padding:96px 24px}
+.cases h2{margin-bottom:16px}
+.lead{font-size:19px;line-height:1.55;margin:0 0 48px;color:var(--mut);max-width:560px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{border:1px solid var(--ink);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;background:var(--card)}
+.card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:1px solid var(--ink)}
+.card div{padding:24px 28px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card small{font-family:var(--m);font-size:12px;color:var(--or);letter-spacing:.06em}
+.card h3{font-family:var(--d);font-weight:800;font-size:28px;letter-spacing:-.02em;margin:0}
+.card p{font-size:15px;line-height:1.6;color:var(--mut);margin:0}
+.card a{margin-top:auto;padding-top:10px;font-weight:600;font-size:15px}
+.apply{border-top:1px solid var(--ink);background:var(--card)}
+.apply .col{display:flex;flex-direction:column;gap:20px}
+.apply p{font-size:18px;line-height:1.6;margin:0;color:var(--mut);max-width:480px}
+.apply .eyebrow{margin:0}
+.direct{margin-top:12px;padding-top:24px;border-top:1px solid var(--ink);display:flex;flex-direction:column;gap:6px;font-size:15px;color:var(--mut)}
+.direct a{font-family:var(--d);font-weight:800;font-size:28px;text-decoration:none;color:var(--or)}
+.formbox{border:1px solid var(--ink);border-radius:24px;padding:32px;background:#fff;align-self:start}
+.formbox form{display:flex;flex-direction:column;gap:16px}
+.formbox label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+.formbox input,.formbox select{padding:14px 16px;border:1px solid var(--ink);border-radius:12px;background:#fff;font-size:16px}
+.formbox input:focus,.formbox select:focus{outline:2px solid var(--or);outline-offset:1px}
+.formbox button{margin-top:8px;background:var(--or);color:#fff;border:0;padding:18px;border-radius:999px;font-weight:600;font-size:17px;cursor:pointer}
+.formbox button:hover{background:#B83A08}
+.formbox button:disabled{opacity:.6;cursor:default}
+.status{font-size:14px;color:var(--mut);min-height:1em;margin:0}
+.done{display:flex;flex-direction:column;gap:14px;padding:48px 0;text-align:center;align-items:center}
+.done i{width:64px;height:64px;border-radius:50%;background:#2B8A3E;color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-style:normal}
+.done b{font-family:var(--d);font-weight:800;font-size:28px}
+.done span{font-size:16px;color:var(--mut);max-width:320px}
+.ftr{border-top:1px solid var(--ink)}
+.ftr .wrap{padding:28px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:#6B665A}
+.ftr .logo{font-size:18px;color:var(--ink)}
+.ftr nav{display:flex;gap:16px;flex-wrap:wrap}
+.ftr nav a{color:#6B665A}
+[hidden]{display:none!important}
