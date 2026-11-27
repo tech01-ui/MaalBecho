@@ -1,3 +1,24 @@
+// GTM events: page_view, phone_call, lead_submit
+(function () {
+  var dl = window.dataLayer = window.dataLayer || [];
+  dl.push({ event: 'page_view', page_location: location.href, page_title: document.title });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (a) dl.push({ event: 'phone_call', link_url: a.getAttribute('href'), link_text: (a.textContent || '').trim() });
+  });
+  var sent = false;
+  function lead(src) { if (sent) return; sent = true; dl.push({ event: 'lead_submit', form_source: src }); }
+  window.mbLeadSubmit = lead;
+  // Native form (if present) and any form inside the LeadzAm embed container
+  document.addEventListener('submit', function (e) { if (e.target && e.target.closest && e.target.closest('#apply')) lead('form'); }, true);
+  // Embed widgets often report success via postMessage
+  window.addEventListener('message', function (e) {
+    var d = e.data, s = '';
+    try { s = typeof d === 'string' ? d : JSON.stringify(d); } catch (x) {}
+    if (/leadzam/i.test(e.origin) && /submit|success|thank/i.test(s)) lead('leadzam');
+  });
+})();
+
 // Maalbecho landing: lead form. Same settings as js/main.js (edit before launch).
 (function () {
   'use strict';
