@@ -1,33 +1,3 @@
-// GTM events: page_view, phone_call, first_form_submit, lead_submit
-(function () {
-  var dl = window.dataLayer = window.dataLayer || [];
-  dl.push({ event: 'page_view', page_location: location.href, page_title: document.title });
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
-    if (a) dl.push({ event: 'phone_call', link_url: a.getAttribute('href'), link_text: (a.textContent || '').trim() });
-  });
-  // Fired from our side: watch what the visitor sees in the form (it lives in a shadow root)
-  var host = document.querySelector('[data-leadgen-form]');
-  if (!host) return;
-  function visibleText(node) {
-    var out = '';
-    [].forEach.call(node.children || [], function (el) {
-      if (el.tagName === 'STYLE' || el.tagName === 'SCRIPT') return;
-      if (el.shadowRoot) out += visibleText(el.shadowRoot);
-      else out += ' ' + (el.innerText || '');
-      if (!el.shadowRoot && el.querySelectorAll) [].forEach.call(el.querySelectorAll('*'), function (c) { if (c.shadowRoot) out += visibleText(c.shadowRoot); });
-    });
-    return out;
-  }
-  var first = false, done = false;
-  var timer = setInterval(function () {
-    var t = visibleText(host);
-    var success = /thank you for your submission/i.test(t);
-    if (!first && (success || /section\s*2\s*of\s*2/i.test(t))) { first = true; dl.push({ event: 'first_form_submit', form_source: 'leadzam' }); }
-    if (!done && success) { done = true; clearInterval(timer); dl.push({ event: 'lead_submit', form_source: 'leadzam' }); }
-  }, 500);
-})();
-
 // Maalbecho landing: lead form. Same settings as js/main.js (edit before launch).
 (function () {
   'use strict';
