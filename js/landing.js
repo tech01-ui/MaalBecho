@@ -72,9 +72,9 @@
     i = (i + 1) % words.length;
     var next = words[i];
     cur.classList.remove('on'); cur.classList.add('out'); cur.setAttribute('aria-hidden', 'true');
-    next.classList.remove('out'); next.style.transition = 'none'; next.style.transform = 'translateY(60%)';
+    next.style.transition = 'none'; next.classList.remove('out'); // snap back below before flipping in
     void next.offsetWidth;
-    next.style.transition = ''; next.style.transform = '';
+    next.style.transition = '';
     next.classList.add('on'); next.removeAttribute('aria-hidden');
-  }, 2200);
+  }, 1500);
 })();
